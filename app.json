@@ -1,59 +1,72 @@
 {
-    "expo": {
-        "name": "VTCApp",
-        "slug": "VTCApp",
-        "version": "1.0.0",
-        "orientation": "portrait",
-        "icon": "./assets/images/icon.png",
-        "scheme": "myapp",
-        "userInterfaceStyle": "automatic",
-        "newArchEnabled": true,
-        "deepLinks": true,
-        "ios": {
-            "supportsTablet": true,
-            "infoPlist": {
-                "NSCameraUsageDescription": "This app requires camera access to take profile pictures."
-            },
-            "bundleIdentifier": "com.doanyennhi.VTCApp"
-        },
-        "android": {
-            "permissions": [
-                "CAMERA",
-                "CAMERA"
-            ],
-            "adaptiveIcon": {
-                "foregroundImage": "./assets/images/adaptive-icon.png",
-                "backgroundColor": "#ffffff"
-            },
-            "package": "com.doanyennhi.VTCApp"
-        },
-        "web": {
-            "bundler": "metro",
-            "output": "static",
-            "favicon": "./assets/images/favicon.png"
-        },
-        "plugins": [
-            "expo-router", [
-                "expo-document-picker",
-                {
-                    "iCloudContainerEnvironment": "Production"
-                }
-            ],
-            [
-                "expo-splash-screen",
-                {
-                    "image": "./assets/images/splash.png",
-                    "resizeMode": "contain",
-                    "backgroundColor": "#ffffff"
-                }
-            ],
-            "expo-asset"
-        ],
-        "experiments": {
-            "typedRoutes": true
-        },
+  "expo": {
+    "name": "VTCApp",
+    "slug": "VTCApp",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/icon.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "deepLinks": true,
+    "ios": {
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSCameraUsageDescription": "This app requires camera access to take profile pictures."
+      },
+      "bundleIdentifier": "com.doanyennhi.VTCApp"
+    },
+    "android": {
+      "permissions": [
+        "CAMERA",
+        "CAMERA"
+      ],
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/images/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.doanyennhi.VTCApp"
+    },
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-document-picker",
+        {
+          "iCloudContainerEnvironment": "Production"
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/splash.png",
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-asset",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "compileSdkVersion": 35,
+            "targetSdkVersion": 35,
+            "buildToolsVersion": "35.0.0"
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true
+    },
     "extra": {
-      "router": {},
+      "router": {
+        "origin": false
+      },
       "eas": {
         "projectId": "19865f8f-eab5-4c12-9e2b-2477b60317b1"
       }
