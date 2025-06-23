@@ -1,0 +1,1 @@
+export { profile as ClientProfileSchema } from './profile';
