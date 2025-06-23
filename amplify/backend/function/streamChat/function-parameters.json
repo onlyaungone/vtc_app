@@ -1,0 +1,12 @@
+{
+  "lambdaLayers": [],
+  "environmentVariableList": [
+    {
+      "cloudFormationParameterName": "streamChatApiKey",
+      "environmentVariableName": "STREAM_CHAT_API_KEY"
+    }
+  ],
+  "secretNames": [
+    "STREAM_CHAT_API_SECRET"
+  ]
+}

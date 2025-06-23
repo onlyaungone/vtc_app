@@ -1,0 +1,49 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-voltageapp-staging-233220-authRole",
+      "UnauthRoleArn": "arn:aws:iam::711966154851:role/amplify-voltageapp-staging-233220-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::711966154851:role/amplify-voltageapp-staging-233220-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-voltageapp-staging-233220-deployment",
+      "UnauthRoleName": "amplify-voltageapp-staging-233220-unauthRole",
+      "StackName": "amplify-voltageapp-staging-233220",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:711966154851:stack/amplify-voltageapp-staging-233220/344d4d20-9234-11ee-923c-0654efcbcfbd",
+      "AmplifyAppId": "d3435x6koskrev"
+    },
+    "categories": {
+      "function": {
+        "streamChat": {
+          "secretsPathAmplifyAppId": "d3435x6koskrev",
+          "streamChatApiKey": "d8fk9qgytcdt",
+          "deploymentBucketName": "amplify-voltageapp-staging-233220-deployment",
+          "s3Key": "amplify-builds/streamChat-7354645830536e724253-build.zip"
+        }
+      },
+      "auth": {
+        "VoltageApp": {}
+      },
+      "storage": {
+        "profilePictureBucket": {}
+      }
+    }
+  },
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-voltageapp-dev-8e818-authRole",
+      "UnauthRoleArn": "arn:aws:iam::711966154851:role/amplify-voltageapp-dev-8e818-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::711966154851:role/amplify-voltageapp-dev-8e818-authRole",
+      "Region": "ap-southeast-2",
+      "DeploymentBucketName": "amplify-voltageapp-dev-8e818-deployment",
+      "UnauthRoleName": "amplify-voltageapp-dev-8e818-unauthRole",
+      "StackName": "amplify-voltageapp-dev-8e818",
+      "StackId": "arn:aws:cloudformation:ap-southeast-2:711966154851:stack/amplify-voltageapp-dev-8e818/c3ebfe70-7b2e-11ef-96d1-0a0b8ec2cf09",
+      "AmplifyAppId": "d3435x6koskrev"
+    },
+    "categories": {
+      "auth": {
+        "voltageappa44b3fcc": {}
+      }
+    }
+  }
+}

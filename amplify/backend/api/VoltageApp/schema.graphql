@@ -1,0 +1,130 @@
+type TrainerActivityRecent @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  userSubId: String!
+  activity: String
+  timestamp: AWSDateTime
+}
+
+type Programs @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  userSubId: String
+  ProgramWorkout: [Workout] @manyToMany(relationName: "ProgramsWorkout")
+  InPersonClients: [InPersonClient] @manyToMany(relationName: "ProgramsInPersonClient")
+  OnlineClients: [OnlineClient] @manyToMany(relationName: "ProgramsOnlineClient")
+}
+
+type Match @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  status: String
+  personaltrainerID: ID! @index(name: "byPersonalTrainer")
+  inpersonclientID: ID @index(name: "byInPersonClient")
+  onlineclientID: ID @index(name: "byOnlineClient")
+}
+
+type ExerciseDetails @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  load: String
+  reps: String
+  weightKGS: String
+  weightLBS: String
+  time: AWSTime
+  bodyweight: String
+  plateLevel: String
+  rpe: String
+  repRange: String
+  asManyRepsAsPossible: String
+  tempo: String
+  rest: AWSTime
+  workoutExerciseId: String!
+}
+
+type Workout @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  exercisess: [Exercises] @manyToMany(relationName: "ExercisesWorkout")
+  userSubId: String!
+  programss: [Programs] @manyToMany(relationName: "ProgramsWorkout")
+  isComplete: Boolean!
+}
+
+type Exercises @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  bodyPart: String
+  equipment: String
+  instructions: [String]
+  name: String
+  secondaryMuscles: [String]
+  target: String
+  Workouts: [Workout] @manyToMany(relationName: "ExercisesWorkout")
+}
+
+type InPersonClient @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  gender: Gender
+  age: Int
+  location: String
+  gymLocation: String
+  sub: String
+  Matches: [Match] @hasMany(indexName: "byInPersonClient", fields: ["id"])
+  programss: [Programs] @manyToMany(relationName: "ProgramsInPersonClient")
+}
+
+type OnlineClient @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String
+  age: Int
+  gender: Gender!
+  trainerAge: Int
+  trainerGender: Gender
+  niche: Niche
+  availability: [Availability]
+  trainerEducation: String
+  sub: String
+  Matches: [Match] @hasMany(indexName: "byOnlineClient", fields: ["id"])
+  programss: [Programs] @manyToMany(relationName: "ProgramsOnlineClient")
+}
+
+enum Availability {
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+  SUNDAY
+}
+
+enum Niche {
+  BODYBUILDING
+  POWERLIFTING
+  WEIGHTLOSS
+  METCON
+  FUNCTIONALFITNESS
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+type PersonalTrainer @model @auth(rules: [{allow: public}]) {
+  id: ID!
+  name: String!
+  education: String!
+  experience: Int!
+  niche: Niche!
+  availability: [Availability!]
+  location: String!
+  sub: String!
+  age: Int!
+  gender: Gender!
+  bio: String
+  isApproved: Boolean
+  image: String
+  gymLocation: String
+  Matches: [Match] @hasMany(indexName: "byPersonalTrainer", fields: ["id"])
+}
+ 
